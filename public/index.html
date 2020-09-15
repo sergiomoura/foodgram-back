@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload de imagem</title>
+</head>
+<body>
+    <input type="file" name="file" id="file">
+    <button>Enviar</button>
+    <script>
+        document.querySelector('button').addEventListener('click',
+            () => {
+                let headers = new Headers();
+                headers.append('user','Sergio Moura');
+                fetch('posts',{
+                    method:'POST',
+                    body:document.getElementById('file').files[0],
+                    headers
+                }).then(
+                    res => res.json()
+                ).then(
+                    result => console.log(result)
+                )
+                
+            }
+        )
+    </script>
+</body>
+</html>
