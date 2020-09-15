@@ -1,7 +1,9 @@
 let express = require('express');
 let router = require('./routes/index');
+let cors = require('cors');
 let app = express();
 
+app.use(cors());
 app.use(express.static('public'));
 app.use(express.json());
 
